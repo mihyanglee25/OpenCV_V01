@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>OpenCV 빌드와 설치 | SuperSimple OpenCV Python</title>
+        <link rel="stylesheet" href="../CSS/style.css" />
+    </head>
+    <body>
+        <header class="topbar">
+            <button class="toc-btn" aria-label="목차 열기/닫기">목차</button
+            ><a class="brand" href="../index.html">SuperSimple OpenCV Python</a
+            ><span class="chapter-label">DarkCyan Learning Site</span>
+        </header>
+        <aside class="sidebar"><iframe class="menu-frame" src="../menuOpenCV.html" title="OpenCV 학습 목차"></iframe></aside>
+        <main class="content">
+            <article class="article">
+                <div class="eyebrow">SECTION 01-02</div>
+                <h1>OpenCV 빌드와 설치</h1>
+                <p class="lead">
+                    CPU 환경은 pip 설치가 가장 단순하며, CUDA 가속이 필요하면 소스 빌드 과정과 환경 변수 구성이
+                    추가됩니다.
+                </p>
+                <h2>CPU 설치</h2>
+                <pre><code>pip install opencv-python
+python -c "import cv2; print(cv2.__version__)"</code></pre>
+                <div class="callout">
+                    GPU 빌드는 CUDA 버전, Visual Studio 툴체인, OpenCV 버전의 조합에 따라 결과가 달라질 수 있으므로 공식
+                    호환 정보를 함께 확인하는 것이 안전합니다.
+                </div>
+                <h2>학습 정리</h2>
+                <p>
+                    예제를 실행할 때는 입력 데이터의 경로와 shape, 반환값 성공 여부를 먼저 확인하고, 처리 결과를
+                    단계별로 화면에 표시하면 오류 원인을 빠르게 찾을 수 있습니다.
+                </p>
+                <div class="source">원문 목차를 바탕으로 학습용으로 재서술한 자료입니다.</div>
+            </article>
+        </main>
+        <script src="../JavaScript/app.js"></script>
+    </body>
+</html>
