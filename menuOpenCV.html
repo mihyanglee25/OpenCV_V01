@@ -8,10 +8,10 @@
     </head>
     <body>
         <nav class="menu-content" aria-label="OpenCV 학습 목차">
-            <a class="overview" data-file="index.html" href="index.html" target="_parent">개요</a>
+            <a class="overview" data-file="index.html" href="index.html">개요</a>
             <div class="nav-group">
                 <button class="nav-main"><span>00 시작합니다!</span><span class="arrow">›</span></button>
-                <div class="submenu"><a data-file="chapter00.html" href="HTML/chapter00.html" target="_parent">00 개요</a></div>
+                <div class="submenu"><a data-file="chapter00.html" href="HTML/chapter00.html">00 개요</a></div>
             </div>
             <div class="nav-group">
                 <button class="nav-main"><span>01 OpenCV 개요 및 설치</span><span class="arrow">›</span></button>
@@ -103,17 +103,29 @@
                 button.addEventListener('click', () => button.closest('.nav-group').classList.toggle('open'));
             });
 
-            const currentFile = window.parent.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('[data-file]').forEach((link) => {
-                if (link.dataset.file === currentFile) {
-                    link.classList.add('active');
-                    const group = link.closest('.nav-group');
-                    if (group) {
-                        group.classList.add('open');
-                        group.querySelector('.nav-main')?.classList.add('active');
+            function setActiveFile(file) {
+                document.querySelectorAll('[data-file]').forEach((link) => {
+                    const active = link.dataset.file === file;
+                    link.classList.toggle('active', active);
+
+                    if (active) {
+                        const group = link.closest('.nav-group');
+                        if (group) {
+                            group.classList.add('open');
+                            group.querySelector('.nav-main')?.classList.add('active');
+                        }
                     }
-                }
+                });
+            }
+
+            document.querySelectorAll('[data-file]').forEach((link) => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.parent.loadPage(link.dataset.file, link.href);
+                });
             });
+
+            setActiveFile(window.parent.currentPageFile || 'index.html');
         </script>
     </body>
 </html>

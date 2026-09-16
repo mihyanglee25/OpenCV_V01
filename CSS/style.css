@@ -333,3 +333,12 @@ code {
     margin: -18px -14px;
     border: 0
 }
+
+.content-frame {
+    display: block;
+    width: 100%;
+    height: calc(100vh - var(--header) - 70px);
+    min-height: 680px;
+    border: 0;
+    background: #fff
+}
